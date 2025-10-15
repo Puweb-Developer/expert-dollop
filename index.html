@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invisible Audio Player</title>
+    <style>
+        body {
+            display: none; /* Makes the entire page invisible */
+        }
+    </style>
+</head>
+<body>
+    <audio id="boopSound" src="boop.mp3" preload="auto"></audio> <!-- Replace 'boop.mp3' with your audio file path or URL -->
+
+    <script>
+        window.addEventListener('load', function() {
+            var audio = document.getElementById('boopSound');
+            audio.play().catch(function(error) {
+                console.log('Autoplay prevented: ' + error.message);
+                // Note: Browsers often block autoplay without user interaction. You may need to trigger this via a click event in your app.
+            });
+        });
+    </script>
+</body>
+</html>
